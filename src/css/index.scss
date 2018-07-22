@@ -1,0 +1,161 @@
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  .loadContainer {
+    height: 100vh;
+    background-color: #000;
+    position: relative
+  }
+  .Spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  header {
+    font-family: Montserrat,Arial,Helvetica,sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 900;
+    height: 56px;
+    background-color: transparent;
+    color: #fff;
+    .ln-logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      img {
+        width: 80px;
+      }
+    }
+    h2 {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 16px;
+      margin: 0;
+      font-weight: 400;
+      z-index: 890;
+    }
+    nav.opened {
+      visibility: visible;
+      opacity: 1;
+    }
+    nav {
+      visibility: hidden;
+      opacity: 0;
+      //-webkit-transition: opacity .5s cubic-bezier(.455,.03,.515,.955),visibility .5s cubic-bezier(.455,.03,.515,.955);
+      transition: opacity .5s cubic-bezier(.455,.03,.515,.955),visibility .5s cubic-bezier(.455,.03,.515,.955);
+      background-color: rgba(0,0,0,0.8);
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      ul {
+        position: absolute;
+        display: inline-block;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        li {
+          float: none;
+          text-align: center;
+          .nav-item {
+            color: #fff;
+            opacity: .5;
+            text-transform: uppercase;
+            transition: opacity .3s cubic-bezier(.455,.03,.515,.955);
+            text-decoration: none;
+            font-size: 28px;
+            line-height: 56px;
+            letter-spacing: 10px;
+            font-weight: 700;
+            &:hover {
+              opacity: 1;
+              background-color: transparent;
+            }
+          }
+          .nav-item.active {
+            opacity: 1;
+          }
+        }
+      }
+
+    }
+    #burger {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      color: #fff;
+      z-index: 1000;
+      width: 35px;
+      height: 16px;
+      span {
+        display: inline-block;
+        position: absolute;
+        height: 2px;
+        background-color: #fff;
+        //-webkit-transition: top .2s cubic-bezier(.455,.03,.515,.955),bottom .2s cubic-bezier(.455,.03,.515,.955),-webkit-transform .2s cubic-bezier(.455,.03,.515,.955) .2s,opacity .2s cubic-bezier(.455,.03,.515,.955);
+        transition: top .2s cubic-bezier(.455,.03,.515,.955),bottom .2s cubic-bezier(.455,.03,.515,.955),transform .2s cubic-bezier(.455,.03,.515,.955) .2s,opacity .2s cubic-bezier(.455,.03,.515,.955);
+      }
+      #line1 {
+        width: 100%;
+        top: 0;
+      }
+      #line2 {
+        width: 75%;
+        top: 7px;
+        opacity: 1;
+        transition: width .2s ease-in-out,opacity 0s ease-in-out .3s;
+      }
+      #line3 {
+        width: 50%;
+        bottom: 0;
+        transition: all .4s ease-in-out,transform .3s ease-in-out,top .3s ease-in-out .3s;
+      }
+      &:hover {
+        #line2 {
+          width: 100%;
+        }
+        #line3 {
+          width: 100%;
+        }
+      }
+    }
+    .opened {
+      span#line1.opened {
+        top: 7px !important;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }
+      span#line2.opened {
+        opacity: 0 !important;
+        transition: opacity 0s ease-in-out .3s;
+      }
+      span#line3.opened {
+        width: 100% !important;
+        bottom: 7px !important;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+}
+@media screen and (min-width: 766px) {
+  #root header nav ul li .nav-item {
+    font-size: 48px;
+    line-height: 90px;
+    letter-spacing: 14px;
+    font-weight: 700;
+  }
+}
+
+@import "./about.scss";
+@import "./home.scss";

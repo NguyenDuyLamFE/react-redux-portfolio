@@ -1,0 +1,278 @@
+/* --------------------------------
+
+Primary style
+
+-------------------------------- */
+*, *::after, *::before {
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+
+.main-body {
+  font-size: 1.6rem;
+  font-family: "Open Sans", sans-serif;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+  background-color: #263238;
+  font-family: Montserrat,Arial,Helvetica,sans-serif; }
+
+.main-body::before {
+  /* never visible - this is used in jQuery to check the current MQ */
+  content: 'mobile';
+  display: none; }
+
+@media only screen and (min-width: 750px) {
+  .main-body::before {
+    /* never visible - this is used in jQuery to check the current MQ */
+    content: 'desktop'; } }
+
+a {
+  color: #267481;
+  text-decoration: none; }
+
+/* --------------------------------
+
+Main Components
+
+-------------------------------- */
+@media only screen and (min-width: 750px) {
+  .main-body[data-hijacking="on"] {
+    overflow: hidden; } }
+
+.cd-section {
+  height: 100vh; }
+
+.cd-section h2 {
+  height: 100vh;
+  text-align: center;
+  font-size: 2.4rem; }
+
+.cd-section:first-of-type > div {
+  background-color: #000;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat;
+  background-image: url(../media/about-bg.jpg); }
+  .cd-section:first-of-type > div .baloon-A {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    height: 70%; }
+  .cd-section:first-of-type > div .about-title {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 70%;
+    max-width: 700px; }
+  .cd-section:first-of-type > div .scroll {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    bottom: 0;
+    font-size: 14px;
+    padding-bottom: 40px;
+    letter-spacing: 2px; }
+    .cd-section:first-of-type > div .scroll::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 2px;
+      height: 30px;
+      background-color: #fff; }
+
+.cd-section:first-of-type > div::before {
+  /* alert -> all scrolling effects are not visible on small devices */
+  content: 'Effects not visible on mobile!';
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 20px;
+  z-index: 2;
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  color: #6a7083; }
+
+.cd-section:nth-of-type(2) > div {
+  background-color: #2e5367; }
+
+.cd-section:nth-of-type(3) > div {
+  background-color: #267481; }
+
+.cd-section:nth-of-type(4) > div {
+  background-color: #fcb052; }
+
+.cd-section:nth-of-type(5) > div {
+  background-color: #f06a59; }
+
+[data-animation="parallax"] .cd-section > div, [data-animation="fixed"] .cd-section > div, [data-animation="opacity"] .cd-section > div {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+[data-animation="parallax"] .cd-section:first-of-type > div, [data-animation="fixed"] .cd-section:first-of-type > div, [data-animation="opacity"] .cd-section:first-of-type > div {
+  background-image: url("../media/img-5.jpg"); }
+
+[data-animation="parallax"] .cd-section:nth-of-type(2) > div, [data-animation="fixed"] .cd-section:nth-of-type(2) > div, [data-animation="opacity"] .cd-section:nth-of-type(2) > div {
+  background-image: url("../media/img-5.jpg"); }
+
+[data-animation="parallax"] .cd-section:nth-of-type(3) > div, [data-animation="fixed"] .cd-section:nth-of-type(3) > div, [data-animation="opacity"] .cd-section:nth-of-type(3) > div {
+  background-image: url("../media/img-5.jpg"); }
+
+[data-animation="parallax"] .cd-section:nth-of-type(4) > div, [data-animation="fixed"] .cd-section:nth-of-type(4) > div, [data-animation="opacity"] .cd-section:nth-of-type(4) > div {
+  background-image: url("../media/img-5.jpg"); }
+
+[data-animation="parallax"] .cd-section:nth-of-type(5) > div, [data-animation="fixed"] .cd-section:nth-of-type(5) > div, [data-animation="opacity"] .cd-section:nth-of-type(5) > div {
+  background-image: url("../media/img-5.jpg"); }
+
+@media only screen and (min-width: 750px) {
+  .cd-section h2 {
+    font-size: 4rem;
+    font-weight: 300;
+    margin: 0;
+    padding: 0; }
+  [data-hijacking="on"] .cd-section {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; }
+  [data-hijacking="on"] .cd-section > div {
+    visibility: visible; }
+  [data-hijacking="off"] .cd-section > div {
+    opacity: 0; }
+  [data-animation="rotate"] .cd-section {
+    /* enable a 3D-space for children elements */
+    -webkit-perspective: 1800px;
+    -moz-perspective: 1800px;
+    perspective: 1800px; }
+  [data-hijacking="on"][data-animation="rotate"] .cd-section:not(:first-of-type) {
+    -webkit-perspective-origin: center 0;
+    -moz-perspective-origin: center 0;
+    perspective-origin: center 0; }
+  [data-animation="scaleDown"] .cd-section > div, [data-animation="gallery"] .cd-section > div, [data-animation="catch"] .cd-section > div {
+    box-shadow: 0 0 0 rgba(25, 30, 46, 0.4); }
+  [data-animation="opacity"] .cd-section.visible > div {
+    z-index: 1; } }
+
+@media only screen and (min-width: 750px) {
+  .cd-section:first-of-type > div::before {
+    display: none; } }
+
+@media only screen and (min-width: 750px) {
+  .cd-section > div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Force Hardware Acceleration */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden; }
+  [data-hijacking="on"] .cd-section > div {
+    position: absolute;
+    bottom: 0;
+    left: 0; }
+  [data-animation="rotate"] .cd-section > div {
+    -webkit-transform-origin: center bottom;
+    -moz-transform-origin: center bottom;
+    -ms-transform-origin: center bottom;
+    -o-transform-origin: center bottom;
+    transform-origin: center bottom; } }
+
+.cd-vertical-nav {
+  /* lateral navigation */
+  position: fixed;
+  right: 1%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  display: none;
+  cursor: pointer; }
+
+.cd-vertical-nav i {
+  display: block;
+  /* image replace */
+  font-size: 50px;
+  line-height: 50px; }
+
+.cd-vertical-nav i.inactive {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s 0s, visibility 0s 0.2s;
+  -moz-transition: opacity 0.2s 0s, visibility 0s 0.2s;
+  transition: opacity 0.2s 0s, visibility 0s 0.2s; }
+
+@media only screen and (min-width: 750px) {
+  .cd-vertical-nav {
+    display: block; } }
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, main {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@media screen and (min-width: 1020px) {
+  .cd-section:first-of-type > div .baloon-A {
+    height: 80%; }
+  .cd-section:first-of-type > div .about-title {
+    width: 60%;
+    top: auto;
+    bottom: 15%; } }

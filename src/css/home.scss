@@ -1,0 +1,85 @@
+%opacity {
+    opacity: 1;
+    transition: opacity 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955), visibility 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    visibility: visible;
+}
+#main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    font-family: Montserrat,Arial,Helvetica,sans-serif;
+    color: #fff;
+    font-style: italic;
+    overflow: hidden;
+    .home-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        background-color: rgba(0,0,0,.7);
+        display: table;
+        .video-content {
+            width: 100%;
+            height: auto;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            img {
+                width: 70px;
+                @extend %opacity
+            }
+            h2 {
+                //padding-top: 1%;
+                font-weight: 700;
+                margin: 0 auto;
+                line-height: 60px;
+                @extend %opacity
+            }
+            p{
+                margin: 0 auto;
+                letter-spacing: 4px;
+                line-height: 24px;
+                max-width: 33em;
+                padding-top: 1em;
+                @extend %opacity
+            }
+        }
+        
+    }
+    .empty {
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+    video {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: 100%;
+        height: auto;
+        z-index: -100;
+        transform: translate(-50%,-50%);
+        background-color: #212121;
+        background-size: cover;
+        transition: opacity 1s;
+
+    }
+
+}
+
+@media only screen and (min-height: 600px) and (max-height: 750px) {
+    #main .home-content h2 {
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+    #main .home-content p {
+        max-width: 33em;
+        font-size: 12px;
+    }
+}

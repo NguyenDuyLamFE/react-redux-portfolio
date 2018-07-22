@@ -1,0 +1,115 @@
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%; }
+  #root header {
+    font-family: Montserrat,Arial,Helvetica,sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 900;
+    height: 56px;
+    background-color: transparent;
+    color: #fff; }
+    #root header .ln-logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1000; }
+      #root header .ln-logo img {
+        width: 80px; }
+    #root header h2 {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 16px;
+      margin: 0;
+      font-weight: 400;
+      z-index: 890; }
+    #root header nav.opened {
+      visibility: visible;
+      opacity: 1; }
+    #root header nav {
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955), visibility 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+      background-color: rgba(0, 0, 0, 0.9);
+      width: 100vw;
+      height: 100vh;
+      position: relative; }
+      #root header nav ul {
+        position: absolute;
+        display: inline-block;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%); }
+        #root header nav ul li {
+          float: none;
+          text-align: center; }
+          #root header nav ul li .nav-item {
+            color: #fff;
+            opacity: .5;
+            text-transform: uppercase;
+            transition: opacity 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+            text-decoration: none;
+            font-size: 28px;
+            line-height: 56px;
+            letter-spacing: 10px; }
+            #root header nav ul li .nav-item:hover {
+              opacity: 1;
+              background-color: transparent; }
+          #root header nav ul li .nav-item.active {
+            opacity: 1; }
+    #root header #burger {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      color: #fff;
+      z-index: 1000;
+      width: 35px;
+      height: 16px; }
+      #root header #burger span {
+        display: inline-block;
+        position: absolute;
+        height: 2px;
+        background-color: #fff;
+        transition: top 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955), bottom 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955), transform 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.2s, opacity 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955); }
+      #root header #burger #line1 {
+        width: 100%;
+        top: 0; }
+      #root header #burger #line2 {
+        width: 75%;
+        top: 7px;
+        opacity: 1;
+        transition: width .2s ease-in-out,opacity 0s ease-in-out .3s; }
+      #root header #burger #line3 {
+        width: 50%;
+        bottom: 0;
+        transition: all .4s ease-in-out,transform .3s ease-in-out,top .3s ease-in-out .3s; }
+      #root header #burger:hover #line2 {
+        width: 100%; }
+      #root header #burger:hover #line3 {
+        width: 100%; }
+    #root header .opened span#line1.opened {
+      top: 7px !important;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg); }
+    #root header .opened span#line2.opened {
+      opacity: 0 !important;
+      transition: opacity 0s ease-in-out .3s; }
+    #root header .opened span#line3.opened {
+      width: 100% !important;
+      bottom: 7px !important;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg); }
+
+@media screen and (min-width: 766px) {
+  #root header nav ul li .nav-item {
+    font-size: 48px;
+    line-height: 90px;
+    letter-spacing: 14px;
+    font-weight: 700; } }
